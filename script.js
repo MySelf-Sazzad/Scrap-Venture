@@ -1049,6 +1049,11 @@ const TeamMembers = (function () {
     const hash = window.location.hash || "#/";
     const path = window.location.pathname || "";
     const search = window.location.search || "";
+
+    if (!window.location.hash && (path === "/" || path.endsWith("/index.html"))) {
+      window.location.hash = "#/team";
+      return;
+    }
     const productMatch = hash.match(/^#\/product\/(.+)$/) || path.match(/\/product\/(.+)$/);
 
     closeMobileNav();
