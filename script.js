@@ -1132,6 +1132,8 @@ const TeamMembers = (function () {
       document.getElementById("pageTitle").textContent = "Scrap Venture";
       Marketplace.mount();
     }
+
+    siteChrome.classList.remove("app-loading");
   }
 
   document.querySelectorAll(".sv-nav__brand").forEach((brandEl) => {
