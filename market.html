@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">Scrap Venture</title>
+<meta
+  name="description"
+  content="Discover sustainable, eco-friendly products on the Scrap Venture Marketplace."
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="registration.css" />
+</head>
+<body>
+
+<!-- =====================================================
+     SITE CHROME — nav + Marketplace/Product views + footer
+     Hidden as a whole while the Admin view is active
+     ===================================================== -->
+<div id="siteChrome">
+
+  <nav class="sv-nav">
+    <div class="sv-nav__inner">
+      <a href="market.html#/team" class="sv-nav__brand">
+        <img src="images/logo.png" alt="Scrap Venture Logo" class="sv-nav__logo" />
+      </a>
+      <ul class="sv-nav__links" id="navLinks">
+        <li><a href="market.html#/team">Home</a></li>
+        <li><a href="#/team" data-route="team">Team Members</a></li>
+        <li><a href="#/" class="active" data-route="market">Marketplace</a></li>
+        <li><a href="#/registration" data-route="registration">Registration</a></li>
+        <li><a href="#contactSection">Contact</a></li>
+      </ul>
+      <div class="sv-nav__actions" style="display:flex; align-items:center; gap:14px;">
+        <button class="sv-nav__cart-btn" id="openCartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <a href="#contactSection" class="sv-nav__cta">Download App</a>
+        <button class="sv-nav__toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== Marketplace view ===================== -->
+  <section id="view-market">
+    <header class="market-hero">
+      <span class="market-hero__leaf market-hero__leaf--one" aria-hidden="true"></span>
+      <span class="market-hero__leaf market-hero__leaf--two" aria-hidden="true"></span>
+      <span class="market-hero__leaf market-hero__leaf--three" aria-hidden="true"></span>
+      <div class="container market-hero__inner">
+        <div>
+          <div class="market-hero__eyebrow">Scrap Venture Marketplace</div>
+          <h1>Marketplace</h1>
+          <p>Discover sustainable products that are better for you and better for our planet.</p>
+
+          <form class="search-bar" id="searchForm" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search sustainable products..."
+              aria-label="Search sustainable products"
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <div class="market-hero__visual">
+          <img src="images/recycle.png" alt="Recycle Icon" class="market-hero__recycle-img" />
+        </div>
+      </div>
+    </header>
+
+    <section class="market-controls">
+      <div class="container">
+        <div class="market-controls__row">
+          <div class="category-chips" id="categoryChips"></div>
+          <div class="sort-select">
+            <label for="sortSelect">Sort by</label>
+            <select id="sortSelect">
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
+        <p class="results-meta" id="resultsMeta"></p>
+      </div>
+    </section>
+
+    <section class="product-grid-section">
+      <span class="market-bottom-leaf market-bottom-leaf--one" aria-hidden="true"></span>
+      <span class="market-bottom-leaf market-bottom-leaf--two" aria-hidden="true"></span>
+      <span class="market-bottom-leaf market-bottom-leaf--three" aria-hidden="true"></span>
+      <div class="container">
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===================== Team Members view ===================== -->
+  <section id="view-team" style="display:none;">
+    <header class="team-hero">
+      <span class="team-hero__orb team-hero__orb--one"></span><span class="team-hero__orb team-hero__orb--two"></span>
+      <span class="team-hero__leaf team-hero__leaf--one"></span><span class="team-hero__leaf team-hero__leaf--two"></span>
+      <div class="container team-hero__content">
+        <p class="team-eyebrow">Our Team</p>
+        <h1>Meet the People Behind <span>Scrap Venture</span></h1>
+        <p>Meet the passionate people working together to make recycling easier, smarter, and more accessible while building a cleaner and more sustainable future.</p>
+      </div>
+    </header>
+
+    <section class="team-members-section" aria-labelledby="team-title">
+      <span class="team-decor team-decor--tl"></span><span class="team-decor team-decor--tr"></span><span class="team-decor team-decor--bl"></span><span class="team-decor team-decor--br"></span>
+      <div class="container">
+        <div class="team-section-heading">
+          <p class="team-eyebrow">The people making it happen</p>
+          <h2 id="team-title">Built by purpose-driven people</h2>
+          <p>A shared commitment to turning everyday recyclables into lasting impact.</p>
+        </div>
+        <div id="teamGrid" class="team-member-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="team-culture-section">
+      <div class="container team-culture-panel">
+        <div class="team-culture-copy">
+          <p class="team-eyebrow">Our Culture</p>
+          <h2>Working Together for a <span>Greener Tomorrow</span></h2>
+          <p>At Scrap Venture, our team combines technology, operations, sustainability, and community engagement to make recycling simpler and more rewarding for everyone.</p>
+        </div>
+        <div class="team-values-grid">
+          <article class="team-value-card"><div class="team-value-icon">♻</div><h3>Sustainability</h3><p>Building responsible solutions for a cleaner environment.</p></article>
+          <article class="team-value-card"><div class="team-value-icon team-value-icon--lightning">&#9889;&#65038;</div><h3>Innovation</h3><p>Using smarter ideas and technology to improve recycling.</p></article>
+          <article class="team-value-card"><div class="team-value-icon">♧</div><h3>Community</h3><p>Working together to create meaningful environmental impact.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-cta">
+      <div class="container team-cta__inner">
+        <div><p class="team-eyebrow">Join the mission</p><h2>Want to Build a Greener Future With Us?</h2><p>Join our mission to make recycling easier and more sustainable.</p></div>
+        <a class="team-cta__button" href="mailto:support@scrapventure.com">Get in Touch <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===================== Product details view ===================== -->
+  <section id="view-product" style="display:none;">
+    <div class="container details-section">
+      <p class="breadcrumb">
+        <a href="#/" data-route="market">Marketplace</a> / <span id="breadcrumbName">Product</span>
+      </p>
+      <div id="detailsRoot"></div>
+    </div>
+  </section>
+
+  <!-- ===================== Campus Ambassador registration view ===================== -->
+  <section id="view-registration" style="display:none;">
+    <section class="registration-hero">
+      <span class="reg-shape reg-shape--one" aria-hidden="true"></span>
+      <span class="reg-shape reg-shape--two" aria-hidden="true"></span>
+      <div class="registration-wrap registration-hero__content">
+        <p class="registration-eyebrow">Scrap Venture Presents</p>
+        <h1>Clean Campus, <span>Green Campus</span></h1>
+        <p class="registration-subtitle">Campus Ambassador Program</p>
+        <p class="registration-intro">Be the environmental leader your school needs and help create a cleaner, greener future.</p>
+      </div>
+    </section>
+
+    <section class="registration-section">
+      <div class="registration-wrap registration-layout">
+        <aside class="registration-info">
+          <div class="registration-info__icon" aria-hidden="true">♻</div>
+          <h2>তুমি কি প্রস্তুত?</h2>
+          <p>পঞ্চম থেকে দশম শ্রেণির শিক্ষার্থীরা এই প্রোগ্রামে অংশ নিতে পারবে।</p>
+          <ul>
+            <li><span>✓</span> পরিবেশ রক্ষায় ভূমিকা রাখো</li>
+            <li><span>✓</span> নিজের ক্যাম্পাসকে আরও পরিচ্ছন্ন করো</li>
+            <li><span>✓</span> সবুজ পরিবর্তনের দূত হও</li>
+          </ul>
+          <img class="registration-info__logo" src="images/logo.png" alt="Scrap Venture" />
+        </aside>
+
+        <div class="registration-card">
+          <div class="registration-card__heading">
+            <p>আবেদন ফর্ম</p>
+            <h2>তোমার তথ্য দাও</h2>
+            <span>সব ঘর পূরণ করা আবশ্যক</span>
+          </div>
+          <form id="registrationForm" novalidate>
+            <div class="registration-fields">
+              <div class="registration-field"><label for="studentName">শিক্ষার্থীর নাম</label><input id="studentName" name="studentName" type="text" placeholder="তোমার পূর্ণ নাম লিখো" required autocomplete="name" /><small class="field-error"></small></div>
+              <div class="registration-field"><label for="studentId">শিক্ষার্থী আইডি</label><input id="studentId" name="studentId" type="text" placeholder="তোমার শিক্ষার্থী আইডি লিখো" required /><small class="field-error"></small></div>
+              <div class="registration-field"><label for="studentClass">শ্রেণি</label><select id="studentClass" name="studentClass" required><option value="">শ্রেণি নির্বাচন করো</option><option value="৫ম">৫ম</option><option value="৬ষ্ঠ">৬ষ্ঠ</option><option value="৭ম">৭ম</option><option value="৮ম">৮ম</option><option value="৯ম">৯ম</option><option value="১০ম">১০ম</option></select><small class="field-error"></small></div>
+              <div class="registration-field registration-field--full"><label for="schoolName">বিদ্যালয়ের নাম</label><input id="schoolName" name="schoolName" type="text" placeholder="তোমার বিদ্যালয়ের নাম লিখো" required /><small class="field-error"></small></div>
+              <div class="registration-field registration-field--full">
+                <label for="studentPhoto">শিক্ষার্থীর ছবি আপলোড</label>
+                <label class="photo-upload" for="studentPhoto" id="photoUploadLabel"><span class="photo-upload__icon">↥</span><span><strong id="photoUploadText">ছবি আপলোড করুন</strong><em>JPG, JPEG অথবা PNG ছবি নির্বাচন করুন</em></span></label>
+                <input id="studentPhoto" name="studentPhoto" type="file" accept="image/png,image/jpeg,image/webp" required hidden />
+                <small class="field-error"></small>
+                <div class="photo-preview" id="photoPreview" hidden>
+                  <div class="photo-preview__image"><img id="previewImage" alt="নির্বাচিত শিক্ষার্থীর ছবি" /><button type="button" id="removePhoto" aria-label="ছবি সরিয়ে দিন">×</button></div>
+                </div>
+              </div>
+            </div>
+            <button class="registration-submit" type="submit">নিবন্ধন করুন <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="registration-success" id="registrationSuccess" role="status" aria-live="polite" hidden><span>✓</span><div><strong>নিবন্ধন সফল হয়েছে!</strong><p>সবুজ ভবিষ্যৎ গড়ার এই যাত্রায় তোমাকে স্বাগতম।</p></div></div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <footer class="sv-footer" id="siteFooter">
+    <div class="container sv-footer__grid">
+      <div>
+        <img src="images/logo.png" alt="Scrap Venture Logo" class="sv-footer__logo" />
+        <p>We are committed to providing the best scrap management solutions for a sustainable future.</p>
+        <p>House #123, Road #12, Mirpur DOHS, Dhaka – 1216, Bangladesh</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#/" data-route="market">Marketplace</a></li>
+          <li><a href="#/team" data-route="team">Team Members</a></li>
+          <li><a href="#siteFooter">About Us</a></li>
+          <li><a href="#contactSection">Contact Us</a></li>
+        </ul>
+      </div>
+      <div id="contactSection">
+        <h4>Contact Us</h4>
+        <p>+8801XXXXXXXXX</p>
+        <p>support@scrapventure.com</p>
+        <p>Customer Support: 10am – 7pm</p>
+      </div>
+    </div>
+    <div class="sv-footer__bottom container">
+      &copy; 2026 Scrap Venture. All rights reserved.
+    </div>
+  </footer>
+
+</div>
+
+<!-- =====================================================
+     ADMIN LOGIN VIEW — shown when accessing #/admin without auth
+     ===================================================== -->
+<div class="admin-login-wrapper" id="view-admin-login" style="display:none;">
+  <div class="admin-login-card">
+    <img src="images/logo.png" alt="Scrap Venture Logo" class="admin-login__logo" />
+    <h2>Admin Portal</h2>
+    <p>Sign in with your administrator credentials to manage products.</p>
+    
+    <div id="adminLoginError" class="login-error-msg" style="display:none;"></div>
+
+    <form id="adminLoginForm">
+      <div class="form-group">
+        <label for="adminUsername">Username</label>
+        <input type="text" id="adminUsername" placeholder="Enter username" required autocomplete="username" />
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="Enter password" required autocomplete="current-password" />
+      </div>
+      <button type="submit" class="btn btn-primary login-btn">Sign In to Dashboard</button>
+    </form>
+    
+    <div class="admin-login-back">
+      <a href="#/">&larr; Return to Marketplace</a>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     ADMIN VIEW — full dashboard, hidden unless authenticated at #/admin
+     ===================================================== -->
+<div class="admin-shell" id="view-admin" style="display:none;">
+
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar__brand">
+      <img src="images/logo.png" alt="Scrap Venture Logo" class="admin-sidebar__logo" />
+    </div>
+    <div class="admin-sidebar__subtitle">Marketplace Admin</div>
+
+    <ul class="admin-nav">
+      <li><a href="#/admin" class="active" data-admin-view="dashboard">Dashboard</a></li>
+      <li><a href="#/admin" data-admin-view="products">Product Management</a></li>
+      <li><a href="#/admin" data-admin-view="orders">Orders <span class="admin-nav__count" id="adminOrderCount">0</span></a></li>
+      <li><a href="#/admin" data-admin-view="registrations">Registrations <span class="admin-nav__count" id="adminRegistrationCount">0</span></a></li>
+      <li><a href="#/admin" data-admin-view="settings">Settings</a></li>
+      <li><a href="#/" data-route="market">View Marketplace</a></li>
+    </ul>
+
+    <div class="admin-sidebar__footer">
+      Signed in as Admin<br />
+      <button id="adminLogoutBtn" class="admin-logout-btn">Log Out</button>
+      <br /><a href="#/" data-route="market">Back to main site</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button class="admin-mobile-toggle" id="sidebarToggle" aria-label="Toggle menu">☰</button>
+        <div>
+          <h1>Marketplace Dashboard</h1>
+          <p>Manage every product shown on the Eco-Friendly Marketplace.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="adminDashboardPanel">
+      <div class="stats-grid" id="statsGrid"></div>
+      <div class="admin-dashboard-grid">
+        <section class="admin-panel admin-welcome-card">
+          <p class="admin-kicker">Marketplace control center</p>
+          <h2>Everything is ready to manage</h2>
+          <p>Add new products, keep stock current, and track every customer order from one place.</p>
+          <div class="admin-quick-actions"><button class="btn-add" type="button" data-dashboard-link="products">Manage Products</button><button class="btn-secondary" type="button" data-dashboard-link="orders">View Orders</button></div>
+        </section>
+        <section class="admin-panel admin-recent-orders">
+          <div class="admin-panel__header"><div><h2>Recent Orders</h2><p class="admin-panel__description">Your latest customer requests.</p></div></div>
+          <div id="adminRecentOrders" class="recent-orders-list"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="adminProductsPanel" style="display:none;">
+      <div class="admin-panel__header">
+        <h2>Product Management</h2>
+        <div class="admin-panel__actions">
+          <div class="admin-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="adminSearch" placeholder="Search products..." />
+          </div>
+          <select class="admin-filter-select" id="adminCategoryFilter">
+            <option value="All">All Categories</option>
+          </select>
+          <button class="btn-add" id="openAddModal">+ Add Product</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="adminOrdersPanel" style="display:none;">
+      <div class="admin-panel__header">
+        <div>
+          <h2>Customer Orders</h2>
+          <p class="admin-panel__description">Review order details and keep customers updated.</p>
+        </div>
+        <select class="admin-filter-select" id="adminOrderFilter">
+          <option value="All">All Orders</option>
+          <option value="Pending">Pending</option>
+          <option value="Processing">Processing</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div class="table-wrapper">
+        <table class="admin-table admin-orders-table">
+          <thead><tr><th>Order</th><th>Customer & Delivery</th><th>Items</th><th>Payment</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody id="adminOrdersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="adminRegistrationsPanel" style="display:none;">
+      <div class="admin-panel__header">
+        <div>
+          <h2>Campus Ambassador Registrations</h2>
+          <p class="admin-panel__description">View student applications submitted from the registration form.</p>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="admin-table admin-registrations-table">
+          <thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>School</th><th>Submitted</th><th>Action</th></tr></thead>
+          <tbody id="adminRegistrationsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-panel admin-settings-panel" id="adminSettingsPanel" style="display:none;">
+      <div class="admin-panel__header"><div><h2>Admin Settings</h2><p class="admin-panel__description">Update the login ID and password for this admin panel.</p></div></div>
+      <form id="adminSettingsForm" class="admin-settings-form">
+        <div class="form-field"><label for="settingsUsername">New Admin ID</label><input id="settingsUsername" type="text" required autocomplete="username" /></div>
+        <div class="form-field"><label for="settingsCurrentPassword">Current Password</label><input id="settingsCurrentPassword" type="password" required autocomplete="current-password" /></div>
+        <div class="form-field"><label for="settingsNewPassword">New Password</label><input id="settingsNewPassword" type="password" required minlength="6" autocomplete="new-password" /></div>
+        <div class="form-field"><label for="settingsConfirmPassword">Confirm New Password</label><input id="settingsConfirmPassword" type="password" required minlength="6" autocomplete="new-password" /></div>
+        <p id="adminSettingsMessage" class="admin-settings-message" role="status"></p>
+        <div><button type="submit" class="btn-add">Save Login Settings</button></div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- ===================== Add / Edit Modal ===================== -->
+<div class="modal-overlay" id="productModalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="productModalTitle">Add Product</h2>
+      <button class="modal-close" id="closeProductModal" aria-label="Close">&times;</button>
+    </div>
+
+    <form id="productForm">
+      <input type="hidden" id="productId" />
+      <div class="form-grid">
+        <div class="form-field full">
+          <label for="productName">Product Name</label>
+          <input type="text" id="productName" required placeholder="e.g. Bamboo Toothbrush Set" />
+        </div>
+
+        <div class="form-field full">
+          <label for="productImage">Product Image URL</label>
+          <input type="url" id="productImage" placeholder="https://..." />
+          <span class="form-hint">Paste an image link, or upload directly from your device below.</span>
+        </div>
+
+        <div class="form-field full">
+          <label for="productImageFile">Upload Product Image</label>
+          <input type="file" id="productImageFile" accept="image/png,image/jpeg,image/webp" />
+          <span class="form-hint">PNG, JPG, or WebP. Uploaded images are optimized before saving.</span>
+          <div class="product-image-preview" id="productImagePreview" hidden><img id="productImagePreviewImg" alt="Selected product preview" /><button type="button" id="clearProductImage">Remove image</button></div>
+        </div>
+
+        <div class="form-field full">
+          <label for="productDescription">Short Description</label>
+          <textarea id="productDescription" required placeholder="One-line summary shown on the product card"></textarea>
+        </div>
+
+        <div class="form-field full">
+          <label for="productFullDescription">Full Description</label>
+          <textarea id="productFullDescription" placeholder="Detailed description shown on the product page"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="productPrice">Price (৳)</label>
+          <input type="number" id="productPrice" min="0" step="1" required placeholder="0" />
+        </div>
+
+        <div class="form-field">
+          <label for="productCategory">Category</label>
+          <select id="productCategory" required></select>
+        </div>
+
+        <div class="form-field full">
+          <label for="productFeatures">Product Features</label>
+          <input type="text" id="productFeatures" placeholder="Comma-separated, e.g. Reusable, BPA-free, Lightweight" />
+          <span class="form-hint">Separate each feature with a comma.</span>
+        </div>
+
+        <div class="form-field full form-field--checkbox">
+          <input type="checkbox" id="productAvailable" checked />
+          <label for="productAvailable">Available for purchase (in stock)</label>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" id="cancelProductModal">Cancel</button>
+        <button type="submit" class="btn-save" id="saveProductBtn">Add Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== Delete Confirm Modal ===================== -->
+<div class="modal-overlay" id="deleteModalOverlay">
+  <div class="modal confirm">
+    <div class="modal-header" style="justify-content:center;">
+      <h2>Delete Product</h2>
+    </div>
+    <p>Are you sure you want to delete this product? This can't be undone.</p>
+    <div class="modal-footer">
+      <button type="button" class="btn-cancel" id="cancelDeleteModal">Cancel</button>
+      <button type="button" class="btn-danger" id="confirmDeleteBtn">Delete</button>
+    </div>
+  </div>
+</div>
+<!-- =====================================================
+     SHOPPING CART DRAWER MODAL
+     ===================================================== -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3>Shopping Cart (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="cart-drawer__close" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer__body" id="cartItemsList">
+      <!-- Dynamic cart items rendered here -->
+    </div>
+
+    <div class="cart-drawer__footer" id="cartDrawerFooter">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <strong id="cartTotalPrice">৳0</strong>
+      </div>
+      <button class="btn-primary checkout-btn" id="proceedCheckoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     CHECKOUT / ORDER PLACEMENT MODAL
+     ===================================================== -->
+<div class="modal-overlay" id="checkoutModalOverlay">
+  <div class="modal checkout-modal">
+    <div class="modal-header">
+      <h2>Place Your Order</h2>
+      <button class="modal-close" id="closeCheckoutModal">&times;</button>
+    </div>
+    
+    <form id="checkoutForm">
+      <div class="checkout-summary">
+        <h4>Order Items Summary</h4>
+        <div id="checkoutSummaryList"></div>
+        <div class="checkout-total">
+          <span>Total Amount:</span>
+          <strong id="checkoutTotalAmount">৳0</strong>
+        </div>
+      </div>
+
+      <div class="form-grid" style="grid-template-columns: 1fr 1fr; margin-top: 16px;">
+        <div class="form-field">
+          <label for="custName">Full Name *</label>
+          <input type="text" id="custName" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-field">
+          <label for="custPhone">Phone Number *</label>
+          <input type="tel" id="custPhone" placeholder="017XXXXXXXX" required />
+        </div>
+
+        <div class="form-field">
+          <label for="custEmail">Email Address *</label>
+          <input type="email" id="custEmail" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-field">
+          <label for="custCity">City / Area *</label>
+          <input type="text" id="custCity" placeholder="e.g. Dhaka" required />
+        </div>
+
+        <div class="form-field full">
+          <label for="custAddress">Full Delivery Address *</label>
+          <textarea id="custAddress" rows="2" placeholder="House/Road/Area/City" required></textarea>
+        </div>
+
+        <div class="form-field full">
+          <label>Payment Method *</label>
+          <div class="payment-options">
+            <label class="payment-radio">
+              <input type="radio" name="paymentMethod" value="Cash on Delivery" checked />
+              <span>Cash on Delivery (COD)</span>
+            </label>
+            <label class="payment-radio">
+              <input type="radio" name="paymentMethod" value="bKash" />
+              <span>bKash</span>
+            </label>
+            <label class="payment-radio">
+              <input type="radio" name="paymentMethod" value="Nagad" />
+              <span>Nagad</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="margin-top:20px;">
+        <button type="button" class="btn-cancel" id="cancelCheckoutBtn">Cancel</button>
+        <button type="submit" class="btn-save" style="background:var(--green-600);">Confirm Order</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="sv-toast" id="toast"></div>
+
+<script src="script.js"></script>
+<script src="registration.js"></script>
+</body>
+</html>

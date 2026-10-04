@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrap Venture</title>
+  <script>window.location.replace("market.html#/registration");</script>
+  <meta name="description" content="ক্লিন ক্যাম্পাস, গ্রিন ক্যাম্পাস – ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রামের নিবন্ধন ফর্ম।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="registration.css" />
+</head>
+<body class="registration-page">
+  <nav class="sv-nav registration-nav">
+    <div class="sv-nav__inner">
+      <a href="market.html#/team" class="sv-nav__brand" aria-label="স্ক্র্যাপ ভেঞ্চার ওয়েবসাইটে ফিরুন">
+        <img src="images/logo.png" alt="স্ক্র্যাপ ভেঞ্চার" class="sv-nav__logo" />
+      </a>
+      <ul class="sv-nav__links" id="navLinks">
+        <li><a href="market.html#/team">হোম</a></li>
+        <li><a href="market.html#/team">আমাদের টিম</a></li>
+        <li><a href="market.html">মার্কেটপ্লেস</a></li>
+        <li><a href="registration.html" class="active">নিবন্ধন</a></li>
+      </ul>
+      <button class="sv-nav__toggle" id="navToggle" aria-label="মেনু খুলুন">☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="registration-hero">
+      <span class="reg-shape reg-shape--one" aria-hidden="true"></span>
+      <span class="reg-shape reg-shape--two" aria-hidden="true"></span>
+      <div class="registration-wrap registration-hero__content">
+        <p class="registration-eyebrow">স্ক্র্যাপ ভেঞ্চার উপস্থাপিত</p>
+        <h1>ক্লিন ক্যাম্পাস, <span>গ্রিন ক্যাম্পাস</span></h1>
+        <p class="registration-subtitle">ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রাম</p>
+        <p class="registration-intro">পরিচ্ছন্ন ও সবুজ ভবিষ্যৎ গড়ার যাত্রায় তোমার বিদ্যালয়ের প্রতিনিধি হও।</p>
+      </div>
+    </section>
+
+    <section class="registration-section">
+      <div class="registration-wrap registration-layout">
+        <aside class="registration-info">
+          <div class="registration-info__icon" aria-hidden="true">♻</div>
+          <h2>তুমি কি প্রস্তুত?</h2>
+          <p>পঞ্চম থেকে দশম শ্রেণির শিক্ষার্থীরা এই প্রোগ্রামে অংশ নিতে পারবে।</p>
+          <ul>
+            <li><span>✓</span> পরিবেশ রক্ষায় ভূমিকা রাখো</li>
+            <li><span>✓</span> নিজের ক্যাম্পাসকে আরও পরিচ্ছন্ন করো</li>
+            <li><span>✓</span> সবুজ পরিবর্তনের দূত হও</li>
+          </ul>
+        </aside>
+
+        <div class="registration-card">
+          <div class="registration-card__heading">
+            <p>আবেদন ফর্ম</p>
+            <h2>তোমার তথ্য দাও</h2>
+            <span>সব ঘর পূরণ করা আবশ্যক</span>
+          </div>
+
+          <form id="registrationForm" novalidate>
+            <div class="registration-fields">
+              <div class="registration-field">
+                <label for="studentName">শিক্ষার্থীর নাম</label>
+                <input id="studentName" name="studentName" type="text" placeholder="তোমার পূর্ণ নাম লিখো" required autocomplete="name" />
+                <small class="field-error"></small>
+              </div>
+              <div class="registration-field">
+                <label for="studentId">শিক্ষার্থী আইডি</label>
+                <input id="studentId" name="studentId" type="text" placeholder="তোমার শিক্ষার্থী আইডি লিখো" required />
+                <small class="field-error"></small>
+              </div>
+              <div class="registration-field">
+                <label for="studentClass">শ্রেণি</label>
+                <select id="studentClass" name="studentClass" required>
+                  <option value="">শ্রেণি নির্বাচন করো</option>
+                  <option value="৫ম">৫ম</option>
+                  <option value="৬ষ্ঠ">৬ষ্ঠ</option>
+                  <option value="৭ম">৭ম</option>
+                  <option value="৮ম">৮ম</option>
+                  <option value="৯ম">৯ম</option>
+                  <option value="১০ম">১০ম</option>
+                </select>
+                <small class="field-error"></small>
+              </div>
+              <div class="registration-field registration-field--full">
+                <label for="schoolName">বিদ্যালয়ের নাম</label>
+                <input id="schoolName" name="schoolName" type="text" placeholder="তোমার বিদ্যালয়ের নাম লিখো" required />
+                <small class="field-error"></small>
+              </div>
+              <div class="registration-field registration-field--full">
+                <label for="studentPhoto">শিক্ষার্থীর ছবি আপলোড</label>
+                <label class="photo-upload" for="studentPhoto" id="photoUploadLabel">
+                  <span class="photo-upload__icon">↑</span>
+                  <span><strong>ছবি নির্বাচন করো</strong><em>জেপিজি, পিএনজি বা ওয়েবপি ফাইল (সর্বোচ্চ ৫ এমবি)</em></span>
+                </label>
+                <input id="studentPhoto" name="studentPhoto" type="file" accept="image/png,image/jpeg,image/webp" required hidden />
+                <small class="field-error"></small>
+                <div class="photo-preview" id="photoPreview" hidden>
+                  <img id="previewImage" alt="নির্বাচিত শিক্ষার্থীর ছবি" />
+                  <div><strong id="photoName"></strong><button type="button" id="removePhoto">ছবি পরিবর্তন করুন</button></div>
+                </div>
+              </div>
+            </div>
+            <button class="registration-submit" type="submit">নিবন্ধন করুন <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="registration-success" id="registrationSuccess" role="status" aria-live="polite" hidden>
+            <span>✓</span>
+            <div><strong>নিবন্ধন সফল হয়েছে!</strong><p>সবুজ ভবিষ্যৎ গড়ার এই যাত্রায় তোমাকে স্বাগতম।</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="registration-footer">© ২০২৬ স্ক্র্যাপ ভেঞ্চার · একটি পরিচ্ছন্ন, সবুজ আগামীকালের জন্য</footer>
+  <script src="registration.js"></script>
+</body>
+</html>
